@@ -2,15 +2,13 @@ FROM centos:centos6
 
 #Install wget and install Java 8
 RUN yum -y install wget
+RUN mkdir -p /usr/java/
 RUN wget --no-cookies \
          --no-check-certificate \
          --header "Cookie: oraclelicense=accept-securebackup-cookie" \
          "http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jdk-8u151-linux-x64.tar.gz" \
          -O /tmp/jdk-8u151-linux-x64.tar.gz
 RUN yum install wget -y tar && tar -xvf  /tmp/jdk-8u151-linux-x64.tar.gz -C /usr/java/
-
-
-
 RUN wget "http://redrockdigimark.com/apachemirror/tomcat/tomcat-8/v8.0.47/bin/apache-tomcat-8.0.47.tar.gz" \
                  -O /apache-tomcat-8.0.47.tar.gz && \
             tar xvzf /apache-tomcat-8.0.47.tar.gz && \
